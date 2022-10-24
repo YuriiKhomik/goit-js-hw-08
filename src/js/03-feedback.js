@@ -35,11 +35,21 @@ fillForm();
 function onFormSubmit(e) {
     e.preventDefault();
 
-    e.currentTarget.reset();
+    const formData = new FormData(e.target);
 
-    console.log(getLsData())
+    const formDataObj = Object.fromEntries(formData.entries());
+    console.log(formDataObj);
+
+
+    // const myFormData = new FormData(event.target);
+
+    // const formDataObj = {};
+    // myFormData.forEach((value, key) => (formDataObj[key] = value));
+    // console.log(formDataObj);
+
 
     localStorage.removeItem(STORAGE_KEY);
+    e.currentTarget.reset();
 };
 
 

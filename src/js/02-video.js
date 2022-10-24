@@ -13,5 +13,7 @@ const onPlay = function(data) {
 
 player.on('timeupdate', throttle(onPlay, 1000));
 
-player.setCurrentTime(timeCode);
+player.setCurrentTime(timeCode).catch(function(error) {
+    console.error('Unable to set timecode')
+});
 
